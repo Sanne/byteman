@@ -219,9 +219,9 @@
                  <version>0.11a</version>
              </dependency>
             <dependency>
-                 <groupId>asm</groupId>
+                 <groupId>org.ow2.asm</groupId>
                  <artifactId>asm-all</artifactId>
-                 <version>3.3.1</version>
+                 <version>5.0.1</version>
             </dependency>
             <dependency>
                  <groupId>de.jflex</groupId>

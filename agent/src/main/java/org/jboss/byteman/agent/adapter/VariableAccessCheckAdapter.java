@@ -108,6 +108,7 @@ public class VariableAccessCheckAdapter extends RuleCheckAdapter
          * @param signature
          * @param stackSlot
          */
+        @Override
         public void visitLocalScopeStart(String name, String desc, String signature, int stackSlot, int startOffset) {
             if (name.equals(varName)) {
                 index =  stackSlot;
@@ -135,6 +136,7 @@ public class VariableAccessCheckAdapter extends RuleCheckAdapter
          * @param signature
          * @param stackSlot
          */
+        @Override
         public void visitLocalScopeEnd(String name, String desc, String signature, int stackSlot, int endOffset) {
             if (name.equals(varName)) {
                 index = -1;
@@ -155,6 +157,7 @@ public class VariableAccessCheckAdapter extends RuleCheckAdapter
             super.visitVarInsn(opcode, var);
         }
 
+        @Override
         public void visitIincInsn(int var, int increment)
         {
             // IINC counts as a read and a write

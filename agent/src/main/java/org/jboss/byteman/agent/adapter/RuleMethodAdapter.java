@@ -23,9 +23,9 @@
 */
 package org.jboss.byteman.agent.adapter;
 
-import org.objectweb.asm.MethodAdapter;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Label;
+import org.objectweb.asm.util.CheckMethodAdapter;
 import org.jboss.byteman.rule.Rule;
 import org.jboss.byteman.agent.TransformContext;
 
@@ -39,7 +39,7 @@ import java.util.List;
  */
 
 // public class RuleMethodAdapter extends GeneratorAdapter {
-public class RuleMethodAdapter extends MethodAdapter {
+public class RuleMethodAdapter extends CheckMethodAdapter {
     public RuleMethodAdapter(final MethodVisitor mv, final TransformContext transformContext, final int access, final String name, final String desc, Rule rule) {
         super(mv);
         this.access = access;
@@ -54,6 +54,7 @@ public class RuleMethodAdapter extends MethodAdapter {
         return transformContext.getTriggerClassName();
     }
 
+    @Override
     public void visitLocalVariable(
         final String name,
         final String desc,

@@ -23,15 +23,15 @@
 */
 package org.jboss.byteman.agent.adapter;
 
-import org.objectweb.asm.ClassAdapter;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
+import org.objectweb.asm.util.CheckClassAdapter;
 
 /**
  * a class adapter which uses
  * to ensure that local variable scopes are notified during code visits
  */
-public class BMLocalScopeAdapter extends ClassAdapter
+public class BMLocalScopeAdapter extends CheckClassAdapter
 {
     public BMLocalScopeAdapter(ClassVisitor cv)
     {

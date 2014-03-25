@@ -1820,7 +1820,7 @@
     </profiles>
     <dependencies>
         <dependency>
-            <groupId>asm</groupId>
+            <groupId>org.ow2.asm</groupId>
             <artifactId>asm-all</artifactId>
             <scope>compile</scope>
         </dependency>

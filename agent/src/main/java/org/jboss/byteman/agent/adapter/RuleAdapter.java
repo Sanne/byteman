@@ -25,16 +25,17 @@ package org.jboss.byteman.agent.adapter;
 
 import org.jboss.byteman.agent.TransformContext;
 import org.objectweb.asm.*;
+import org.objectweb.asm.util.CheckClassAdapter;
 
 /**
  * generic asm Adapter class specialised by both check adapters (RuleCheckAdapter) and trigger
  * adapters (RuleTriggerAdapter)
  */
-public class RuleAdapter extends ClassAdapter
+public class RuleAdapter extends CheckClassAdapter
 {
     protected RuleAdapter(ClassVisitor cv, TransformContext transformContext)
     {
-        super(cv);
+        super(Opcodes.ASM5, cv, true);
         this.transformContext =  transformContext;
     }
 
