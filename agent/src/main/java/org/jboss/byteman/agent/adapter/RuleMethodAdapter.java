@@ -34,7 +34,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * generic rule method adapter which extends GeneratorAdpater and adds the ability to track in-scope
+ * generic rule method adapter which extends GeneratorAdapter and adds the ability to track in-scope
  * local variables
  */
 

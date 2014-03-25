@@ -69,7 +69,7 @@ public class ClassStructureAdapter extends CheckClassAdapter {
 
     @Override
     public void visitSource(String source, String debug) {
-        // do nothimg
+        // do nothing
     }
 
     @Override
@@ -84,12 +84,12 @@ public class ClassStructureAdapter extends CheckClassAdapter {
 
     @Override
     public void visitAttribute(Attribute attr) {
-        // do nothimg
+        // do nothing
     }
 
     @Override
     public void visitInnerClass(String name, String outerName, String innerName, int access) {
-        // do nothimg
+        // do nothing
     }
 
     @Override
@@ -104,6 +104,6 @@ public class ClassStructureAdapter extends CheckClassAdapter {
 
     @Override
     public void visitEnd() {
-        // do nothimg
+        // do nothing
     }
 }

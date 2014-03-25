@@ -59,7 +59,7 @@ public class Main {
         boolean installPolicy = false;
 
         if (args != null) {
-            // args are supplied eparated by ',' characters
+            // args are supplied separated by ',' characters
             String[] argsArray = args.split(",");
             // we accept extra jar files to be added to the boot/sys classpaths
             // script files to be scanned for rules
@@ -203,20 +203,20 @@ public class Main {
 
         // install an instance of Transformer to instrument the bytecode
         // n.b. this is done with boxing gloves on using explicit class loading and method invocation
-        // via reflection for a GOOD reason. This class (Main) gets laoded by the System class loader.
-        // If we refer to Transformer by name then it also gets loaded va the System class loader.
+        // via reflection for a GOOD reason. This class (Main) gets loaded by the System class loader.
+        // If we refer to Transformer by name then it also gets loaded via the System class loader.
         // But if we want to transform a bootstrap class we need Transformer (et al) to be visible
         // from the bootstrap class loader. That will not happen until after this method has called
         // inst.appendToBootstrapClassLoaderSearch (see above) to add the byteman jar to the path.
-        // Directly referring to Transformer will giveus two versions of Transformer et al. Not only
-        // does that cause us class mismathc problem it also means that a new done here will not install
-        // the new instance in the static field fo the oneloaded in the bootstrap loader. If instead we
-        // use boxing gloves then the byteman code wil get loaded in the bootstrap loader and its constructor
+        // Directly referring to Transformer will give us two versions of Transformer et al. Not only
+        // does that cause us class mismatch problem it also means that a new done here will not install
+        // the new instance in the static field fo the one loaded in the bootstrap loader. If instead we
+        // use boxing gloves then the byteman code will get loaded in the bootstrap loader and its constructor
         // will be called.
         //
         // Of course, if the user does not supply boot:byteman.jar as a -javaagent option then class references
         // resolve against the system loader and injection into bootstrap classes fails. But that's still ok
-        // because the byteman classes are still only foudn in one place.
+        // because the byteman classes are still only found in one place.
 
         boolean isRedefine = inst.isRedefineClassesSupported();
 
